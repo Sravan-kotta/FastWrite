@@ -12,10 +12,11 @@ license = {file = "LICENSE"}  # Or specify a license string, e.g., "MIT"
 authors = [
     { name="R-G-KJSIT", email="r.giridhar@somaiya.edu" }
 ]
-urls = { 
-    "Homepage" = "https://github.com/R-G-KJSIT/QuickScript",
-    "Repository" = "https://github.com/R-G-KJSIT/QuickScript"
-}
+
+[project.urls]
+Homepage = "https://github.com/R-G-KJSIT/QuickScript"
+Repository = "https://github.com/R-G-KJSIT/QuickScript"
+
 dependencies = [
     "groq",
     "google-generativeai",
