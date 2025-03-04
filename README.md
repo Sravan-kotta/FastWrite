@@ -65,7 +65,7 @@ print(graphviz_code)
 ### Generating Documentation (Groq):
 
 ```
-from ai_doc_module import generate_documentation_groq
+from QuickScript import generate_documentation_groq
 
 custom_prompt = """
 Objective:
@@ -83,7 +83,7 @@ print(doc_groq)
 ### Generating Documentation (Gemini):
 
 ```
-from ai_doc_module import generate_documentation_gemini
+from QuickScript import generate_documentation_gemini
 
 custom_prompt = """
 Objective:
@@ -101,7 +101,7 @@ print(doc_gemini)
 ### Generating Documentation (Ollama):
 
 ```
-from ai_doc_module import generate_documentation_ollama
+from QuickScript import generate_documentation_ollama
 
 custom_prompt = """
 Objective:
@@ -119,7 +119,7 @@ print(doc_ollama)
 ### Calculating Bleu Score:
 
 ```
-from ai_doc_module import calculate_bleu
+from QuickScript import calculate_bleu
 
 # Provide a reference documentation string for comparison
 reference_doc = "Your reference documentation text here..."

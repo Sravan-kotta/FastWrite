@@ -1,7 +1,7 @@
 from nltk.translate.bleu_score import sentence_bleu
 from nltk.tokenize import word_tokenize
 import nltk
-nltk.download('punkt', quiet=True)
+nltk.download('punkt_tab', quiet=True)
 
 def calculate_bleu(candidate_doc: str, reference_doc: str) -> float:
     """
