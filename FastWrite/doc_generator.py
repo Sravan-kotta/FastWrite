@@ -1,6 +1,7 @@
 import requests
 from groq import Groq
 import google.generativeai as genai
+import openai
 from .config import get_groq_api_key, get_gemini_api_key
 
 def generate_documentation_groq(code: str, custom_prompt: str, groq_api_key: str = None, model: str = "deepseek-r1-distill-llama-70b") -> str:
@@ -41,6 +42,32 @@ def generate_documentation_gemini(code: str, custom_prompt: str, gemini_api_key:
     gen_model = genai.GenerativeModel(model)
     response = gen_model.generate_content(f"{custom_prompt}\n\n{code}")
     return response.text
+
+def generate_documentation_openai(code: str, custom_prompt: str, openai_api_key: str = None, model: str = "text-davinci-003", max_tokens: int = 1024, temperature: float = 0.7) -> str:
+    """
+    Generates documentation using the OpenAI API.
+    If no API key is provided, it will prompt for one and save it to .env.
+
+    :param code: The Python source code.
+    :param custom_prompt: A prompt string outlining documentation requirements.
+    :param openai_api_key: API key for OpenAI (optional).
+    :param model: The identifier of the OpenAI model to use.
+    :param max_tokens: Maximum number of tokens to generate.
+    :param temperature: Sampling temperature.
+    :return: Generated documentation as a markdown string.
+    """
+    if openai_api_key is None:
+        openai_api_key = get_openai_api_key()
+    openai.api_key = openai_api_key
+
+    response = openai.Completion.create(
+        model=model,
+        prompt=f"{custom_prompt}\n\n{code}",
+        max_tokens=max_tokens,
+        temperature=temperature,
+    )
+    doc_content = response.choices[0].text.strip()
+    return doc_content
 
 def generate_documentation_ollama(code: str, custom_prompt: str, model: str = "ollama-llama-70b") -> str:
     """

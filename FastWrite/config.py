@@ -33,3 +33,9 @@ def get_gemini_api_key() -> str:
     Returns the Gemini API key.
     """
     return get_api_key("GEMINI_API_KEY")
+
+def get_openai_api_key() -> str:
+    """
+    Returns the OpenAI API key.
+    """
+    return get_api_key("OPENAI_API_KEY")

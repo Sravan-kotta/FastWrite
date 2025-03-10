@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "FastWrite"
-version = "1.0.1"
+version = "1.0.3"
 description = "A module for generating AI-based code documentation and data flow diagrams."
 readme = "README.md"
 requires-python = ">=3.11"
@@ -17,7 +17,8 @@ dependencies = [
     "google-generativeai",
     "requests",
     "nltk",
-    "python-dotenv"
+    "python-dotenv",
+    "openai"
 ]
 
 [project.urls]

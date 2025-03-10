@@ -8,6 +8,7 @@ This module provides functionality to:
 - **Generate Documentation**: Produce detailed documentation for Python code using multiple AI models:
   - Groq-based models (remote)
   - Gemini-based models (remote)
+  - OpenAI-based models (remote)
   - Ollama-based models (local)
 - **Evaluate Documentation Quality**: Compute BLEU scores to compare generated documentation against a reference document.
 
@@ -15,15 +16,16 @@ This module provides functionality to:
 ## Installation
 
 ### Requirements
-- Python 3.12
+- Python 3.11
 - [groq](https://pypi.org/project/groq/)
 - [google-generativeai](https://pypi.org/project/google-generativeai/)
+- [openai](https://pypi.org/project/openai/)
 - [requests](https://pypi.org/project/requests/)
 - [nltk](https://pypi.org/project/nltk/)
 
 ### Install Dependencies
 ```bash
-pip install groq google-generativeai requests nltk python-dotenv
+pip install groq google-generativeai requests nltk python-dotenv openai
 ```
 
 ## Usage
@@ -98,6 +100,20 @@ print(doc_gemini)
 
 ```
 
+### Generating Documentation (OpenAI):
+
+```
+from FastWrite import generate_documentation_openai
+
+custom_prompt = """
+Objective:
+Generate detailed documentation for Python code. Include inline comments, function descriptions, module overviews, and best practices.
+"""
+doc_openai = generate_documentation_openai(code_content, custom_prompt)
+print(doc_openai)
+
+```
+
 ### Generating Documentation (Ollama):
 
 ```
@@ -124,7 +140,7 @@ from FastWrite import calculate_bleu
 # Provide a reference documentation string for comparison
 reference_doc = "Your reference documentation text here..."
 
-bleu_score = calculate_bleu(doc_groq, reference_doc)
+bleu_score = calculate_bleu(doc_llm-host, reference_doc) ##LLM host may include Groq,Gemini,OpenAI or Ollama
 print("BLEU Score:", bleu_score)
 
 ```
