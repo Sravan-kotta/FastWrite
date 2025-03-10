@@ -1,4 +1,4 @@
-# QuickScript
+# FastScript
 Python Module for AI-Assisted Documentation
 
 ## Overview
@@ -30,7 +30,7 @@ pip install groq google-generativeai requests nltk python-dotenv
 
 ### Processing Files:
 ```
-from QuickScript import extract_zip, list_python_files, read_file
+from FastScript import extract_zip, list_python_files, read_file
 import tempfile
 import os
 
@@ -54,7 +54,7 @@ with tempfile.TemporaryDirectory() as tmp_dir:
 ### Generating Data Flow Diagrams:
 
 ```
-from QuickScript import generate_data_flow
+from FastScript import generate_data_flow
 
 # Generate Graphviz code for the data flow diagram
 graphviz_code = generate_data_flow(code_content)
@@ -65,7 +65,7 @@ print(graphviz_code)
 ### Generating Documentation (Groq):
 
 ```
-from QuickScript import generate_documentation_groq
+from FastScript import generate_documentation_groq
 
 custom_prompt = """
 Objective:
@@ -83,7 +83,7 @@ print(doc_groq)
 ### Generating Documentation (Gemini):
 
 ```
-from QuickScript import generate_documentation_gemini
+from FastScript import generate_documentation_gemini
 
 custom_prompt = """
 Objective:
@@ -101,7 +101,7 @@ print(doc_gemini)
 ### Generating Documentation (Ollama):
 
 ```
-from QuickScript import generate_documentation_ollama
+from FastScript import generate_documentation_ollama
 
 custom_prompt = """
 Objective:
@@ -119,7 +119,7 @@ print(doc_ollama)
 ### Calculating Bleu Score:
 
 ```
-from QuickScript import calculate_bleu
+from FastScript import calculate_bleu
 
 # Provide a reference documentation string for comparison
 reference_doc = "Your reference documentation text here..."
