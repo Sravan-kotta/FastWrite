@@ -2,7 +2,7 @@ import requests
 from groq import Groq
 import google.generativeai as genai
 import openai
-from .config import get_groq_api_key, get_gemini_api_key
+from .config import get_groq_api_key, get_gemini_api_key, get_openai_api_key
 
 def generate_documentation_groq(code: str, custom_prompt: str, groq_api_key: str = None, model: str = "deepseek-r1-distill-llama-70b") -> str:
     """
