@@ -150,3 +150,11 @@ bleu_score = calculate_bleu(doc_llm-host, reference_doc) ##LLM host may include 
 print("BLEU Score:", bleu_score)
 
 ```
+
+### Generating README File:
+
+```
+from FastWrite.print import readmegen
+
+readmegen(doc_llm,llm_used)
+```
