@@ -64,6 +64,12 @@ print(graphviz_code)
 
 ```
 
+### Generating Documentation (Express Mode):
+```
+py -m FastWrite code_filename.py --LLM_NAME
+```
+
+
 ### Generating Documentation (Groq):
 
 ```
