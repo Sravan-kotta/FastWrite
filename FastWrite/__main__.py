@@ -1,6 +1,7 @@
 import argparse
 import os
-from FastWrite import file_processor, doc_generator, print
+from FastWrite import file_processor, doc_generator
+from FastWrite.print import readmegen, remove_think_tags
 
 def main():
     parser = argparse.ArgumentParser(description="Generate documentation for a Python file using FastWrite.")
