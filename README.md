@@ -3,7 +3,7 @@ Python Module for AI-Assisted Documentation
 
 ## Current Statistics:
 - [![PyPI Downloads](https://static.pepy.tech/badge/fastwrite)](https://pepy.tech/projects/fastwrite)
-- Latest Version: [V 1.1.1](https://pypi.org/project/FastWrite)
+- Latest Version: [V 1.1.2](https://pypi.org/project/FastWrite)
 
 ## Overview
 This module provides functionality to:
@@ -139,6 +139,20 @@ ollama_model = "ollama-llama-70b"
 
 doc_ollama = generate_documentation_ollama(code_content, custom_prompt, ollama_model)
 print(doc_ollama)
+
+```
+
+### Generating Documentation (OpenRouter):
+
+```
+from FastWrite import generate_documentation_openrouter
+
+custom_prompt = """
+Objective:
+Generate detailed documentation for Python code. Include inline comments, function descriptions, module overviews, and best practices.
+"""
+doc_openrouter = generate_documentation_openrouter(code_content, custom_prompt)
+print(doc_openrouter)
 
 ```
 

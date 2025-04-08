@@ -39,3 +39,9 @@ def get_openai_api_key() -> str:
     Returns the OpenAI API key.
     """
     return get_api_key("OPENAI_API_KEY")
+
+def get_openrouter_api_key() -> str:
+    """
+    Returns the OpenRouter API key.
+    """
+    return get_api_key("OPENROUTER_API_KEY")
