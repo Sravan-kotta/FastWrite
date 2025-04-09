@@ -13,6 +13,7 @@ This module provides functionality to:
   - Groq-based models (remote)
   - Gemini-based models (remote)
   - OpenAI-based models (remote)
+  - OpenRouter-based models (remote)
   - Ollama-based models (local)
 - **Evaluate Documentation Quality**: Compute BLEU scores to compare generated documentation against a reference document.
 
@@ -81,7 +82,7 @@ from FastWrite import generate_documentation_groq
 
 custom_prompt = """
 Objective:
-Generate detailed and structured documentation for Python code. Include inline comments, function descriptions, module overviews, and best practices.
+Generate high-quality, developer-friendly documentation for the following Python code Ensure you include Detailed function-level and file-level documentation and a high level slightly less technical documentation at the start to make it friendly. Do not print full code snippets of existing code, just explain them:
 """
 
 groq_api_key = "your_groq_api_key"
@@ -99,7 +100,7 @@ from FastWrite import generate_documentation_gemini
 
 custom_prompt = """
 Objective:
-Generate detailed and structured documentation for Python code. Include inline comments, function descriptions, module overviews, and best practices.
+Generate high-quality, developer-friendly documentation for the following Python code Ensure you include Detailed function-level and file-level documentation and a high level slightly less technical documentation at the start to make it friendly. Do not print full code snippets of existing code, just explain them:
 """
 
 gemini_api_key = "your_gemini_api_key"
@@ -117,7 +118,7 @@ from FastWrite import generate_documentation_openai
 
 custom_prompt = """
 Objective:
-Generate detailed documentation for Python code. Include inline comments, function descriptions, module overviews, and best practices.
+Generate high-quality, developer-friendly documentation for the following Python code Ensure you include Detailed function-level and file-level documentation and a high level slightly less technical documentation at the start to make it friendly. Do not print full code snippets of existing code, just explain them:
 """
 doc_openai = generate_documentation_openai(code_content, custom_prompt)
 print(doc_openai)
@@ -131,7 +132,7 @@ from FastWrite import generate_documentation_ollama
 
 custom_prompt = """
 Objective:
-Generate detailed and structured documentation for Python code. Include inline comments, function descriptions, module overviews, and best practices.
+Generate high-quality, developer-friendly documentation for the following Python code Ensure you include Detailed function-level and file-level documentation and a high level slightly less technical documentation at the start to make it friendly. Do not print full code snippets of existing code, just explain them:
 """
 
 # Replace with your local Ollama model name (e.g., "ollama-llama-70b")
@@ -149,7 +150,7 @@ from FastWrite import generate_documentation_openrouter
 
 custom_prompt = """
 Objective:
-Generate detailed documentation for Python code. Include inline comments, function descriptions, module overviews, and best practices.
+Generate high-quality, developer-friendly documentation for the following Python code Ensure you include Detailed function-level and file-level documentation and a high level slightly less technical documentation at the start to make it friendly. Do not print full code snippets of existing code, just explain them:
 """
 doc_openrouter = generate_documentation_openrouter(code_content, custom_prompt)
 print(doc_openrouter)
