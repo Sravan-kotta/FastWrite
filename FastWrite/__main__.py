@@ -20,7 +20,7 @@ def main():
         print(f"Error: File '{args.filename}' does not exist.")
         return
 
-    selected_llms = [args.GROQ, args.GEMINI, args.OPENAI]
+    selected_llms = [args.GROQ, args.GEMINI, args.OPENAI, args.OPENROUTER]
     if sum(selected_llms) != 1:
         print("Error: Please specify exactly one LLM using --GROQ, --GEMINI, --OPENAI, or --OPENROUTER.")
         return
@@ -40,8 +40,8 @@ def main():
         documentation = doc_generator.generate_documentation_openai(code, prompt, model=args.model or "gpt-3.5-turbo")
         llm_used = "OPENAI"
     elif args.OPENROUTER:
-        documentation = doc_generator.generate_documentation_openai(code, prompt, model=args.model or "openrouter/quasar-alpha")
-        llm_used = "OPENAI"
+        documentation = doc_generator.generate_documentation_openrouter(code, prompt, model=args.model or "openrouter/quasar-alpha")
+        llm_used = "OPENROUTER"
 
     with open("README.md", "w") as readme_file:
         documentation = remove_think_tags(documentation)
