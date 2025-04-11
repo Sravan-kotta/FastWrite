@@ -11,6 +11,7 @@ def main():
     parser.add_argument("--GROQ", action="store_true", help="Use GROQ for generating documentation.")
     parser.add_argument("--GEMINI", action="store_true", help="Use Gemini for generating documentation.")
     parser.add_argument("--OPENAI", action="store_true", help="Use OpenAI for generating documentation.")
+    parser.add_argument("--OPENROUTER", action="store_true", help="Use OpenRouter for generating documentation.")
     parser.add_argument("--model", type=str, default=None, help="Optional model name to override default.")
 
     args = parser.parse_args()
@@ -19,9 +20,9 @@ def main():
         print(f"Error: File '{args.filename}' does not exist.")
         return
 
-    selected_llms = [args.GROQ, args.GEMINI, args.OPENAI]
+    selected_llms = [args.GROQ, args.GEMINI, args.OPENAI, args.OPENROUTER]
     if sum(selected_llms) != 1:
-        print("Error: Please specify exactly one LLM using --GROQ, --GEMINI, or --OPENAI.")
+        print("Error: Please specify exactly one LLM using --GROQ, --GEMINI, --OPENAI, or --OPENROUTER.")
         return
 
     with open(args.filename, 'r') as f:
@@ -38,6 +39,9 @@ def main():
     elif args.OPENAI:
         documentation = doc_generator.generate_documentation_openai(code, prompt, model=args.model or "gpt-3.5-turbo")
         llm_used = "OPENAI"
+    elif args.OPENROUTER:
+        documentation = doc_generator.generate_documentation_openrouter(code, prompt, model=args.model or "openrouter/quasar-alpha")
+        llm_used = "OPENROUTER"
 
     with open("README.md", "w") as readme_file:
         documentation = remove_think_tags(documentation)
