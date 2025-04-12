@@ -1,4 +1,4 @@
-from .file_processor import extract_zip, list_python_files, read_file
+from .file_processor import extract_zip, list_code_files, read_file
 from .data_flow import generate_data_flow
 from .doc_generator import (
     generate_documentation_groq,
