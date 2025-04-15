@@ -14,6 +14,10 @@ def main():
     parser.add_argument("--OPENROUTER", action="store_true", help="Use OpenRouter for generating documentation.")
     parser.add_argument("--model", type=str, default=None, help="Optional model name to override default.")
 
+    # Documentation style arguments
+    parser.add_argument("--Simplify", action="store_true", help="Generate simplified documentation for broader understanding for less technical users.")
+    parser.add_argument("--Formal", action="store_true", help="Generate formal and concise documentation only considering important points.")
+
     args = parser.parse_args()
 
     if not os.path.isfile(args.filename):
@@ -29,6 +33,11 @@ def main():
         code = f.read()
 
     prompt = "Generate high-quality, developer-friendly documentation for the following Python code Ensure you include Detailed function-level and file-level documentation and a high level slightly less technical documentation at the start to make it friendly. Do not print full code snippets of existing code, just explain them:"
+
+    if args.Simplify:
+        prompt += " Simplify the documentation to make it easy for everyone to understand, even if it means sacrificing some detail."
+    elif args.Formal:
+        prompt += " Make the documentation extremely formal and to the point. Ensure that it is concise and only includes the most important points. Avoid unnecessary details or explanations."
 
     if args.GROQ:
         documentation = doc_generator.generate_documentation_groq(code, prompt, model=args.model or "llama-3.3-70b-versatile")

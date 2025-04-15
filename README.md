@@ -3,7 +3,7 @@ Python Module for AI-Assisted Documentation
 
 ## Current Statistics:
 - [![PyPI Downloads](https://static.pepy.tech/badge/fastwrite)](https://pepy.tech/projects/fastwrite)
-- Latest Version: [V 1.1.8](https://pypi.org/project/FastWrite)
+- Latest Version: [V 1.1.9](https://pypi.org/project/FastWrite)
 
 ## Overview
 This module provides functionality to:
@@ -71,7 +71,14 @@ print(graphviz_code)
 
 ### Generating Documentation (Express Mode):
 ```
+# Normal Mode:
 py -m FastWrite code_filename.py --LLM_NAME
+
+# Simplified (Novice Friendly) Mode:
+py -m FastWrite code_filename.py --LLM_NAME --Simplify
+
+# Formal (Precise and to the Point) Mode:
+py -m FastWrite code_filename.py --LLM_NAME --Formal
 ```
 
 

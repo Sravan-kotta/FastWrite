@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "FastWrite"
-version = "1.1.8"
+version = "1.1.9"
 description = "A module for generating AI-based code documentation and data flow diagrams."
 readme = "README.md"
 requires-python = ">=3.11"
@@ -22,7 +22,7 @@ dependencies = [
 ]
 
 [project.urls]
-Homepage = "https://rishisp.me/FastWrite"
+Homepage = "https://fastwrite-py.netlify.app/"
 Repository = "https://github.com/R-G-KJSIT/FastWrite"
 
 
