@@ -17,6 +17,8 @@ def main():
     # Documentation style arguments
     parser.add_argument("--Simplify", action="store_true", help="Generate simplified documentation for broader understanding for less technical users.")
     parser.add_argument("--Formal", action="store_true", help="Generate formal and concise documentation only considering important points.")
+    parser.add_argument("--Research", action="store_true", help="Generate extreme detailed documentation with both Novice Friendly and Technical levels.")
+    parser.add_argument("--Custom-Prompt", type=str, default=None, help="Custom user-defined prompt (must be enclosed in quotes).")
 
     args = parser.parse_args()
 
@@ -38,6 +40,14 @@ def main():
         prompt += " Simplify the documentation to make it easy for everyone to understand, even if it means sacrificing some detail."
     elif args.Formal:
         prompt += " Make the documentation extremely formal and to the point. Ensure that it is concise and only includes the most important points. Avoid unnecessary details or explanations."
+    elif args.Research:
+        prompt += """ Create an extremely detailed documentation, with both a Novice Friendly explanation and a Technical Explanation. Go in depth into every aspect of the code including but not limited to:
+        - Abstract: Brief summary of the entire project
+        - Introduction: Overview of the problem and solution
+        - Methodology: Approach and methods used"""
+
+    if args.Custom_Prompt:
+        prompt = args.Custom_Prompt
 
     if args.GROQ:
         documentation = doc_generator.generate_documentation_groq(code, prompt, model=args.model or "llama-3.3-70b-versatile")

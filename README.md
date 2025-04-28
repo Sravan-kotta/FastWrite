@@ -3,7 +3,7 @@ Python Module for AI-Assisted Documentation
 
 ## Current Statistics:
 - [![PyPI Downloads](https://static.pepy.tech/badge/fastwrite)](https://pepy.tech/projects/fastwrite)
-- Latest Version: [V 1.1.9](https://pypi.org/project/FastWrite)
+- Latest Version: [V 1.1.10](https://pypi.org/project/FastWrite)
 
 ## Overview
 This module provides functionality to:
@@ -79,6 +79,12 @@ py -m FastWrite code_filename.py --LLM_NAME --Simplify
 
 # Formal (Precise and to the Point) Mode:
 py -m FastWrite code_filename.py --LLM_NAME --Formal
+
+# Research (In-Depth and Elaborate Documentation):
+py -m FastWrite code_filename.py --LLM_NAME --Research
+
+# Custom (Allows you to feed a custom prompt of your own):
+py -m FastWrite code_filename.py --LLM_NAME --Custom-Prompt "Enter Custom Prompt here"
 ```
 
 
